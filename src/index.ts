@@ -27,7 +27,9 @@ app.use(express.json());
 /**
  * Server Activation
  */
-
+const server = app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
+});
 /**
  * Webpack HMR Activation
  */
