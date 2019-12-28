@@ -51,7 +51,7 @@ itemsRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 // PUT items/
-itemsRouter.post("/", async (req: Request, res: Response) => {
+itemsRouter.put("/", async (req: Request, res: Response) => {
   try {
     const item: Item = req.body.item;
 
