@@ -6,6 +6,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { itemsRouter } from "./items/items.router";
+import { errorHandler } from "./middleware/error.middleware";
 
 dotenv.config();
 
@@ -26,6 +27,9 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use("/items", itemsRouter);
+// Add error Handler
+app.use(errorHandler);
+
 /**
  * Server Activation
  */
