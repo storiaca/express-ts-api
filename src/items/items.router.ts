@@ -6,6 +6,8 @@ import * as ItemService from "./items.services";
 import { Item } from "./item.interface";
 import { Items } from "./items.interface";
 
+import { checkJwt } from "../middleware/authz.middleware";
+
 /**
  * Router Definition
  */
@@ -37,6 +39,9 @@ itemsRouter.get("/:id", async (req: Request, res: Response) => {
     res.status(404).send(e.message);
   }
 });
+
+// Mount authorzation middleware
+itemsRouter.use(checkJwt);
 
 // POST items/
 itemsRouter.post("/", async (req: Request, res: Response) => {
